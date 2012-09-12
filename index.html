@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PhillyCoders - Computer Programmers and Coders in the Philadelphia Region</title>
+<style>
+
+body {
+    overflow: scroll;
+}
+
+#container {
+   margin: 0 auto;
+   width: 960px;
+   overflow: hidden;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+
+	// something that changes path depending on url structure
+	// if phillycoders.com or if render in url - look in current folder
+	// or
+	// if pulling from this file then do data in javascript
+
+	var baseURI = window.document.baseURI;
+	var pattern=/static/g;
+	var result=pattern.test(baseURI);
+	if(result == true){
+		var jsonurl = 'phillycoders.json';
+	} else {
+		var jsonurl = '../cji/js/data/phillycoders.json';
+	} 
+	$.getJSON(jsonurl, function(data) {
+		//console.log(data.sitename);  
+		$('h1').html(data.sitename);
+		$('h2').html(data.description);
+
+		 /*
+		  var items = [];
+
+		  $.each(data, function(key, val) {
+		    items.push('<li id="' + key + '">' + val + '</li>');
+		  });
+
+		  $('<ul/>', {
+		    'class': 'my-new-list',
+		    html: items.join('')
+		  }).appendTo('body');
+	*/
+		});
+
+
+});
+
+</script>
+</head>
+<body>
+<div id="container">
+<h1></h1>
+<h2></h2>
+<hr/>
+<h3>Event Schedule</h3>
+<ul>
+<a href='http://www.meetup.com/phillycoders/'>
+	<li>Meetup</li>
+</a>
+</ul>
+</h3>
+<h3>Social Media</h3>
+<ul>
+<a href='http://www.phillycoders.com/twitter'>
+	<li>Twitter</li>
+</a>
+<a href='http://www.phillycoders.com/facebook'>
+	<li>Facebook</li>
+</a>
+</ul>
+</h3>
+<h3>Past Events</h3>
+<ul>
+<a href='http://www.meetup.com/PhillyCoders/events/69203982/'>
+	<li>PhillyCoders: Improving Your Coding Skills at Jenkins Law Library</li>
+	<ul>
+		<a href='http://pivotal.github.com/jasmine/'>
+			<li>Jasmine</li>
+		</a>
+		<a href='http://seleniumhq.org/'>
+			<li>Selenium</li>
+		</a>
+		<a href='http://jenkins-ci.org/'>
+			<li>Jenkins</li>
+		</a>
+	</ul>
+</a>
+<br/>
+<a href='http://www.meetup.com/PhillyCoders/events/66586082/'>
+	<li>PhillyCoders June: JVM Languages at SunGard</li>
+	<ul>
+		<a href='http://www.java.com'>
+			<li>Java</li>
+		</a>
+		<a href='http://www.groovy.codehaus.org'>
+			<li>Groovy</li>
+		</a>
+		<a href='http://www.scala-lang.org'>
+			<li>Scala</li>
+		</a>
+		<a href='http://www.clojure.org'>
+			<li>Clojure</li>
+		</a>
+		<a href='http://www.jython.org'>
+			<li>Jython</li>
+		</a>
+		<a href='jruby.org'>
+			<li>JRuby</li>
+		</a>
+	</ul>
+</a>
+<br/>
+<a href='http://www.meetup.com/PhillyCoders/events/60319802/'>
+	<li>jQuery: Lightning Talks and Questions at the Philadelphia Inquirer & Daily News</li>
+	<ul>
+		<a href='http://www.jquery.com'>
+			<li>jQuery</li>
+		</a>
+	</ul>
+</a>
+<br/>
+<a href='http://www.meetup.com/PhillyCoders/events/57991852/'>
+	<li>PhillyCoders April - JavaScript: Lightning Talks and Questions at SunGard</li>
+	<ul>
+		<a href='http://www.vim.org'>
+			<li>Vim</li>
+		</a>
+		<a href='http://www.gnu.org/s/emacs/'>
+			<li>GNU Emacs</li>
+		</a>
+	</ul>
+</a>
+</ul>
+<hr/>
+</div>
+</body>
+</html>
